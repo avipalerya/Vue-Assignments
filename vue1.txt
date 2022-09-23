@@ -1,0 +1,60 @@
+1... Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS and JavaScript, 
+and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be it simple or complex.
+
+2...  The Pros: 
+1 – Lightweight: 
+The VueJS framework is tiny, almost comically so. It’s just 18 kilobytes – blinking takes longer than the download. 
+
+2 – No Brainer: 
+VueJS is really easy to pick up, and it’s been this characteristic that has been the main driver behind it’s widespread and increasing adoption amongst programmers. To start coding in Vue, you don’t necessarily need expert level comprehension of libraries, JSX, or TypeScript like you do with Angular or React. All that’s required is basic knowledge in HTML, CSS and JavaScript. 
+
+3 – Be A Tool: 
+After 6 years post release, VueJS has accumulated a powerful set of tools for unit and end to end testing, as well as a plugin installation system. Factor in the VueJS has its own browser
+
+debugging tools, server renderer and a state manager and you’re well equipped and on your way to building a frontend. 
+
+4 – Sense of Community: 
+The online VueJS community is nothing short of fantastically helpful. The crowdfunded nature of the platform, and the fact that it’s not backed by a company like Facebook or Google, has gained Vue a cult following. As a result, there are multiple guides to help you along, as well as super active Reddit and Discord channels where some Helpful Harry will be able to competently answer your queries. 
+
+5 – DOM-inant: 
+As we touched on, a DOM is a representation of HTML pages with styles, elements, and page content shown as linked objects. This generates something that looks like an upside-down family tree, with the document branching off into its various parts, linked by lines that demonstrate the relations. 
+
+As the user interacts with the HTML based web page, the browser has to update the information and render it to the user’s screen as objects change their state. This process is normally cumbersome and slow, as the whole page has to refresh even if just one object changes. VueJS uses a virtual copy of the original DOM that figures out what elements require updating, without re-rendering the entire DOM – greatly improving app performance and speed. Even better than React JS and Angular. 
+
+6 – Two Faced: 
+VueJS inherited two-way data binding from its parent, Angular. This is a connection between model data updates and the user interface view. This makes it way easier to update related components and track the data that gets updated. 
+
+In VueJS, the bound data gets updated as the DOM objects change in real time – and this reactivity makes data updating more concise and a much easier task. 
+
+7 – Divide and Conquer: 
+In VueJS, each piece of a web page or app is expressed as a component, an encapsulated element of the user interface. These can be written in HTML, CSS, and JavaScript without having to divide them into separate files. 
+
+These chunks of code can be reused as templates for similar system elements. As they’re stored in separate files, the layout is super easy to read and understand – meaning it’s easier to
+
+maintain and fix. Testing can check how even the smallest components of the app work on their own. 
+
+Because of this flexibility, VueJS is able to integrate with almost any existing application. It’s JavaScript based, and doesn’t really need any other tools to work. Switching from React or Angular to VueJS doesn’t really cause any issues, as essentially Vue is a mash up of the two and can talk to both Model View Controller and Component Based Architecture.
+
+3...   An SPA (Single-page application) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript APIs such as XMLHttpRequest and Fetch when different content is to be shown.
+
+
+4...in vs
+
+5...v-text
+v-html
+v-show
+v-if
+v-else
+v-else-if
+v-for
+v-on
+v-bind
+v-model
+v-slot
+v-pre
+v-once
+v-memo
+v-cloak
+
+
+6...in vs

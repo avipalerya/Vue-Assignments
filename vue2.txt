@@ -1,0 +1,244 @@
+1==>
+
+1.v-html
+    Update the element's innerHTML.
+
+    Expects: string
+
+    Details:
+          Contents of v-html are inserted as plain HTML - Vue template syntax will not be processed.
+
+2.v-show
+  Toggle the element's visibility based on the truthy-ness of the expression value.
+
+  Expects: any
+
+  Details
+  v-show works by setting the display CSS property via inline styles, and will try to respect the initial display value when the element is visible.
+  It also triggers transitions when its condition changes.
+
+3.v-if
+  Conditionally render an element or a template fragment based on the truthy-ness of the expression value.
+
+  Expects: any
+
+  Details
+  When a v-if element is toggled, the element and its contained directives / components are destroyed and re-constructed.
+  If the initial condition is falsy, then the inner content won't be rendered at all.
+
+4.v-else
+  Denote the "else block" for v-if or a v-if / v-else-if chain.
+
+  Does not expect expression
+
+  Details==>
+
+  Restriction: previous sibling element must have v-if or v-else-if.
+
+  Can be used on <template> to denote a conditional block containing only text or multiple elements.
+
+5. v-for
+   Render the element or template block multiple times based on the source data.
+
+   Expects: Array | Object | number | string | Iterable
+
+   Details
+
+   The directive's value must use the special syntax alias in expression to provide an alias for the current element being iterated on
+
+
+6. v-on
+   Attach an event listener to the element.
+
+   Shorthand: @
+
+   Expects: Function | Inline Statement | Object (without argument)
+
+   Argument: event (optional if using Object syntax)
+
+7. v-bind
+
+   Dynamically bind one or more attributes, or a component prop to an expression.
+
+   Shorthand: : or . (when using .prop modifier)
+
+   Expects: any (with argument) | Object (without argument)
+
+   Argument: attrOrProp (optional)
+
+   Modifiers:
+
+   .camel - transform the kebab-case attribute name into camelCase.
+   .prop - force a binding to be set as a DOM property. 3.2+
+   .attr - force a binding to be set as a DOM attribute. 
+
+
+8. v-model
+   Create a two-way binding on a form input element or a component.
+
+   Expects: varies based on value of form inputs element or output of components
+
+   Limited to:
+   <input>
+   <select>
+   <textarea>
+   components
+
+9. v-once
+   Render the element and component once only, and skip future updates.
+
+   Does not expect expression
+
+   Details
+   On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. 
+   This can be used to optimize update performance.
+
+
+2==>
+Computed Properties
+===================
+
+In-template,  expressions are very convenient, but they are meant for simple operations. 
+So we use computed properties it will maintain the hard code.
+for complex logic that includes reactive data, it is recommended to use a computed property. 
+
+
+3==>
+WATCHERS
+========
+we can use the watch option to trigger a function whenever a reactive property changes.
+
+in the cases where we need to perform "side effects" in reaction to state changes
+
+
+Deep Watchers
+=============
+
+watch is shallow by default: 
+the callback will only trigger when the watched property has been assigned a new value -
+it won't trigger on nested property changes. 
+If you want the callback to fire on all nested mutations, you need to use a deep watcher:
+
+
+4==>
+REF
+=======
+When ref is used inside v-for, the resulting ref value will be an array containing the corresponding elements:
+ref is a special attribute, similar to the key attribute in the v-for. 
+It allows us to obtain a direct reference to a specific DOM element or child component instance after it's mounted.
+5==>
+
+LIFE CYCLE METHODS
+====================
+
+3 phases
+-----------
+1.MOUNTING
+2.UPDATING
+3.UNMOUNTING
+
+1.Mounting
+
+beforeCreate
+-------------
+Called when the instance is initialized.
+
+Called immediately when the instance is initialized, after props resolution, before processing other options such as data() or computed
+
+created
+----------
+Called after the instance has finished processing all state-related options.
+
+Details
+
+When this hooks is called, the following have been set up: reactive data, computed properties, methods, and watchers.
+However, the mounting phase has not been started, and the $el property will not be available yet.
+
+beforeMount
+------------
+Called right before the component is to be mounted.
+
+Details
+
+When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. 
+It is about to execute its DOM render effect for the first time.
+
+This hook is not called during server-side rendering.
+
+mounted
+----------
+Called after the component has been mounted.
+
+Details
+
+A component is considered mounted after:
+
+All of its synchronous child components have been mounted (does not include async components or components inside <Suspense> trees).
+
+Its own DOM tree has been created and inserted into the parent container. 
+Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
+
+This hook is typically used for performing side effects that need access to the component's rendered DOM,
+ or for limiting DOM-related code to the client in a server-rendered application.
+
+This hook is not called during server-side rendering
+
+
+
+2.Update phase
+================
+
+beforeUpdate
+--------------
+Called right before the component is about to update its DOM tree due to a reactive state change.
+
+Details
+
+This hook can be used to access the DOM state before Vue updates the DOM.
+It is also safe to modify component state inside this hook.
+
+This hook is not called during server-side rendering.
+
+updated
+---------------
+Called after the component has updated its DOM tree due to a reactive state change.
+
+Details
+
+A parent component's updated hook is called after that of its child components.
+
+This hook is called after any DOM update of the component, 
+which can be caused by different state changes. 
+If you need to access the updated DOM after a specific state change, use nextTick() instead.
+
+This hook is not called during server-side rendering.
+
+
+3.Unmount Phase
+================
+
+beforeUnmount
+----------------
+Called right before a component instance is to be unmounted.
+
+Details
+
+When this hook is called, the component instance is still fully functional.
+
+This hook is not called during server-side rendering.
+
+unmounted
+------------------
+Called after the component has been unmounted.
+
+Details
+
+A component is considered unmounted after:
+---------------------------------------------
+All of its child components have been unmounted.
+
+All of its associated reactive effects (render effect and computed / watchers created during setup()) have been stopped.
+
+Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
+
+This hook is not called during server-side rendering.
