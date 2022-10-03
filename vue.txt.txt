@@ -1,0 +1,4 @@
+https://v3-migration.vuejs.org/
+https://api.tvmaze.com/search/shows?q=hello
+https://vuejs.org/guide/built-ins/teleport.html#basic-usage
+https://router.vuejs.org/guide/migration/index.html#navigation-guards-in-mixins-are-ignored
